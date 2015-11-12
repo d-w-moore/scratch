@@ -5,7 +5,6 @@
 
 #include <functional>
 
-
 template< typename ret_t, typename... types_t>
 class operation_caller {
     public:
@@ -24,7 +23,7 @@ class operation_caller<ret_t,void> {
     public:
     typedef std::function<ret_t( void )> fcn_t;
     operation_caller( fcn_t _f ) : operation_(_f) {}
-    ret_t call( void ) {
+    ret_t call( ) {
         return operation_( );
     }
     private: 
@@ -36,7 +35,7 @@ class operation_caller<void,void> {
     public:
     typedef std::function<void( void )> fcn_t;
     operation_caller( fcn_t _f ) : operation_(_f) {}
-    void call( void ) {
+    void call( ) {
         operation_( );
     }
     private: 

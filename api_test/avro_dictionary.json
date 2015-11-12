@@ -1,0 +1,8 @@
+{
+    "type": "record",
+    "name": "dictionary",
+    "fields" : [
+    {"name": "len", "type": "int"},
+    {"name": "keyVal", "type": { "type":  "map", "values": "string" } }
+    ]
+}
