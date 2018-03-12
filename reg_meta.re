@@ -22,7 +22,7 @@ pep_database_reg_data_obj_post(*INST, *CTX, *OUT, *INFO) {
         # apply file extension metadata
         writeLine("serverLog", "XXXX - apply irods::file_type metadata [*ext] for [*src_lp]")
 
-        *meta = "irods::file_type++++" ++ *ext
+        *meta = "irods::file_type=" ++ *ext
         writeLine("serverLog", "XXXX - apply irods::file_type meta [*meta]")
         msiString2KeyValPair(*meta, *meta_kvp);
         msiAssociateKeyValuePairsToObj(*meta_kvp, *src_lp, "-d")
@@ -51,7 +51,7 @@ pep_database_reg_replica_post(*INST, *CTX, *OUT, *SRC, *DST, *COND) {
 
     split_path(*dst_lp, ".", *stem, *ext)
     if(*stem != *ext) {
-        *meta = "irods::file_type++++" ++ *ext
+        *meta = "irods::file_type=" ++ *ext
         writeLine("serverLog", "XXXX - apply metadata [*meta]")
         msiString2KeyValPair(*meta, *meta_kvp);
         msiAssociateKeyValuePairsToObj(*meta_kvp, *src_lp, "-d")
